@@ -1,69 +1,71 @@
 <template>
   <div class="signup-container">
-      <div class="signup-form">
-          <h2>Sign Up</h2>
-          <p>Create an account to unlock exclusive features.</p>
-          <form @submit.prevent="handleSubmit">
-              <div class="form-group">
-                  <label for="fullName" class="fullName">Full Name</label>
-                  <input type="text" id="fullName" v-model="fullName" placeholder="Enter your Name" required />
-              </div>
-              <div class="form-group">
-                  <label for="email" class="email">Email</label>
-                  <input type="email" id="email" v-model="email" placeholder="Enter your Email" required />
-              </div>
-              <div class="form-group password-group">
-                  <label for="password" class="password">Password</label>
-                  <div class="password-input">
-                      <input :type="showPassword ? 'text' : 'password'" id="password" class="passwordInput"
-                          v-model="password" placeholder="Enter your Password" required />
-                      <span class="eye-icon" @click="togglePasswordVisibility">
-                          <i :class="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
-                      </span>
-                  </div>
-              </div>
-              <div class="form-group terms">
-                  <input type="checkbox" id="agree" v-model="agree" required />
-                  <label for="agree" class="terms-label">I agree with Terms of Use and Privacy Policy</label>
-              </div>
-              <button type="submit" class="signup-button">Sign Up</button>
-          </form>
-          <div class="social-signup">
-              <div class="or-divider">
-                  <hr />
-                  <span>OR</span>
-                  <hr />
-              </div>
-              <button class="google-signup">
-                  <i class="fab fa-google"></i>
-                  <span>Sign Up with Google</span>
-              </button>
+    <div class="signup-form">
+      <h2 class="signUp-title">Sign Up</h2>
+      <p class="signUp-info">Create an account to unlock exclusive features.</p>
+      <form @submit.prevent="handleSubmit">
+        <div class="form-group">
+          <label for="fullName" class="fullName">Full Name</label>
+          <input type="text" id="fullName" v-model="fullName" placeholder="Enter your Name" required />
+        </div>
+        <div class="form-group">
+          <label for="email" class="email">Email</label>
+          <input type="email" id="email" v-model="email" placeholder="Enter your Email" required />
+        </div>
+        <div class="form-group password-group">
+          <label for="password" class="password">Password</label>
+          <div class="password-input">
+            <input :type="showPassword ? 'text' : 'password'" id="password" class="passwordInput" v-model="password"
+              placeholder="Enter your Password" required />
+            <span class="eye-icon" @click="togglePasswordVisibility">
+              <i :class="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+            </span>
           </div>
-          <p class="login-link">
-              Already have an account? <a href="#">Login</a>
-              <i class="fas fa-arrow-right"></i>
-          </p>
+        </div>
+        <div class="form-group terms">
+          <input type="checkbox" id="agree" v-model="agree" required />
+          <label for="agree" class="terms-label">I agree with Terms of Use and Privacy Policy</label>
+        </div>
+        <button type="submit" class="signup-button">Sign Up</button>
+      </form>
+      <div class="social-signup">
+        <div class="or-divider">
+          <hr />
+          <span class="or-hr">OR</span>
+          <hr />
+        </div>
+        <button class="google-signup">
+
+          <!--<i class="fab fa-google"></i>-->
+          <img src="../../../public/img/icons/googleicon.png" class="google-icon">
+          <span>Sign Up with Google</span>
+        </button>
       </div>
+      <p class="login-link">
+        Already have an account? <a href="#">Login</a>
+        <img src="../../assets/upicon.png" alt="" class="up-icon">
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   data() {
-      return {
-          fullName: '',
-          email: '',
-          password: '',
-          agree: false,
-          showPassword: false
-      };
+    return {
+      fullName: '',
+      email: '',
+      password: '',
+      agree: false,
+      showPassword: false
+    };
   },
   name: 'AppSignUp',
   methods: {
-    
-      togglePasswordVisibility() {
-          this.showPassword = !this.showPassword;
-      }
+
+    togglePasswordVisibility() {
+      this.showPassword = !this.showPassword;
+    }
   }
 };
 </script>
@@ -77,6 +79,18 @@ export default {
   background-color: white;
 }
 
+.signUp-title {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: "Be Vietnam Pro", serif;
+}
+
+.signUp-info {
+  font-size: 14px;
+  font-weight: 400px;
+  font-family: "Be Vietnam Pro", serif;
+}
+
 .signup-form {
   background: white;
   padding: 2rem;
@@ -84,10 +98,6 @@ export default {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
-}
-
-h2 {
-  margin-bottom: 1rem;
 }
 
 .form-group {
@@ -103,17 +113,21 @@ label {
 .email,
 .password {
   text-align: left;
+  font-family: "Be Vietnam Pro", serif;
 }
 
 input[type="text"],
 input[type="email"],
 .passwordInput {
   width: 100%;
-  padding: 0.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-family: "Be Vietnam Pro", serif;
+  /*padding: 0.5rem;*/
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
   padding: 10px;
   outline: 0;
-  box-sizing: border-box; /* Ensure padding and border are included in the width */
+  box-sizing: border-box;
+  /* Ensure padding and border are included in the width */
 }
 
 .password-group {
@@ -126,7 +140,8 @@ input[type="email"],
 }
 
 .passwordInput {
-  padding-right: 40px; /* Add space for the eye icon */
+  padding-right: 40px;
+  /* Add space for the eye icon */
 }
 
 .eye-icon {
@@ -135,17 +150,31 @@ input[type="email"],
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  color: #888; /* Eye icon color */
+  color: #888;
+  /* Eye icon color */
 }
 
 .terms {
   display: flex;
   flex-direction: row;
   gap: 10px;
+
 }
 
 .terms-label {
-  padding-top: 6px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #59595A;
+  line-height: 27px;
+
+}
+
+input[type=checkbox] {
+  box-sizing: border-box;
+
+  width: 25px;
+  height: 25px;
+  border-radius: 4px
 }
 
 .signup-button {
@@ -156,13 +185,16 @@ input[type="email"],
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-family: "Be Vietnam Pro", serif;
 }
 
 .social-signup {
   text-align: center;
   margin: 1rem 0;
 }
-
+.or-hr{
+  font-family: "Be Vietnam Pro", serif;
+}
 .or-divider {
   display: flex;
   align-items: center;
@@ -178,42 +210,55 @@ input[type="email"],
 .or-divider span {
   padding: 0 0.5rem;
 }
-
+.google-icon{
+  width: 20px;
+  height: 20px;
+}
 .google-signup {
   width: 100%;
   padding: 0.75rem;
-  background-color: transparent;
-  border: 1px solid #ccc;
+  background-color: #F7F7F8;
+  border: 1px solid rgba(104, 89, 97, 0.03);
   border-radius: 4px;
   cursor: pointer;
   display: flex;
   align-items: center;
+  gap: 12px;
   justify-content: center;
+  font-family: "Be Vietnam Pro", serif;
 }
 
-.google-signup i {
+/*.google-signup i {
   margin-right: 0.5rem;
-}
+}*/
 
 .login-link {
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "Be Vietnam Pro", serif;
 }
 
 .login-link a {
   margin-left: 0.25rem;
+  font-family: "Be Vietnam Pro", serif;
 }
 
-.login-link i {
+/*.login-link i {
   margin-left: 0.5rem;
   transform: rotate(45deg);
+}*/
+
+.up-icon{
+  width:20px; 
+  height:20px;
+  padding-left: 2px
 }
 
 @media (max-width: 768px) {
   .signup-form {
-      padding: 1rem;
+    padding: 1rem;
   }
 }
 </style>
